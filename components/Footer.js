@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="max-w-2xl mx-auto px-8 py-6 mt-4">
       <p className="font-body text-xs text-stone-400 text-center">
-        &copy; {year} Your Name. All rights reserved.
+        &copy; {year} Trevor Ezaki. All rights reserved.
       </p>
     </footer>
   );
