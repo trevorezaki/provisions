@@ -1,0 +1,37 @@
+// Prisma schema for the fridge management POC.
+// Local dev uses SQLite; swap the datasource to Postgres when deploying.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  id                 String   @id @default(cuid())
+  name               String
+  category           String   // e.g. "produce", "leftovers", "snacks"
+  type                String   // "raw" or "cooked"
+  location           String   @default("fridge") // "fridge", "freezer", or "pantry"
+  containerDescription String? // e.g. "blue bowl with lid" — for leftovers, or bag/batch labeling in the freezer
+  dateAdded          DateTime @default(now())
+  expirationDate     DateTime?
+  status             String   @default("active") // "active", "finished" (used it), or "wasted" (threw it out)
+  resolvedAt         DateTime? // when status last changed away from "active" — powers the 48h Resolved window
+  allergens          String   @default("[]") // JSON array of allergen keys/custom strings present in this item
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  name      String
+  allergens String   @default("[]") // JSON array of allergen keys/custom strings this person reacts to
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

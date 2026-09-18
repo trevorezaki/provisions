@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Countdown bar shown while a resolved item is still in its
+   collapse-in-place grace period, before Undo stops being offered. */
+@keyframes item-collapse-timer {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
