@@ -3,6 +3,8 @@ import { RESOLVED_WINDOW_HOURS } from "@/lib/expiration";
 import { parseAllergens } from "@/lib/allergens";
 import InventoryList from "@/components/InventoryList";
 
+export const dynamic = "force-dynamic";
+
 export default async function InventoryPage() {
   const cutoff = new Date(Date.now() - RESOLVED_WINDOW_HOURS * 60 * 60 * 1000);
   const [items, rawProfiles] = await Promise.all([

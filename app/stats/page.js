@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import StatsView from "@/components/StatsView";
 
+export const dynamic = "force-dynamic";
+
 export default async function StatsPage() {
   // Pull every item ever logged (including finished/wasted ones) so
   // frequency and trends reflect real history, not just what's active

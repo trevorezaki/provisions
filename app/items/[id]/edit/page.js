@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { parseAllergens } from "@/lib/allergens";
 import EditItemForm from "./EditItemForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function EditItemPage({ params }) {
   const item = await prisma.item.findUnique({ where: { id: params.id } });
 

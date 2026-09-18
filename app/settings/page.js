@@ -2,6 +2,8 @@ import { prisma } from "@/lib/prisma";
 import { parseAllergens } from "@/lib/allergens";
 import ProfilesManager from "@/components/ProfilesManager";
 
+export const dynamic = "force-dynamic";
+
 export default async function SettingsPage() {
   const rawProfiles = await prisma.profile.findMany({
     orderBy: { createdAt: "asc" },

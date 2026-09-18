@@ -6,6 +6,8 @@ import {
 } from "@/lib/allergens";
 import CopyInventory from "./CopyInventory";
 
+export const dynamic = "force-dynamic";
+
 function formatDate(date) {
   if (!date) return "no expiration date";
   return `expires ${new Date(date).toLocaleDateString()}`;

@@ -3,6 +3,8 @@ import { RESOLVED_WINDOW_HOURS } from "@/lib/expiration";
 import { parseAllergens } from "@/lib/allergens";
 import AttentionList from "@/components/AttentionList";
 
+export const dynamic = "force-dynamic";
+
 export default async function Dashboard() {
   // Active items, plus anything resolved recently enough to still be
   // correctable — AttentionList splits these into its two tabs itself.

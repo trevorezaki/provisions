@@ -1,12 +1,12 @@
-// Prisma schema for the fridge management POC.
-// Local dev uses SQLite; swap the datasource to Postgres when deploying.
+// Prisma schema for the fridge management app.
+// Now pointed at Postgres (Vercel/Prisma Postgres in production).
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
